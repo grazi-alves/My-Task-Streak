@@ -144,3 +144,18 @@ footer {
   font-size: 14px;
   color: #555;
 }
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.star-button {
+  background: transparent;
+  font-size: 20px;
+  padding: 4px 8px;
+}
+
+.starred {
+  transform: scale(1.2);
+}

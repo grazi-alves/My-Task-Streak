@@ -7,25 +7,41 @@ addButton.addEventListener("click", addTask);
 
 function addTask() {
     const taskText = input.value.trim();
-
     if (taskText === "") return;
 
     const li = document.createElement("li");
+
     li.innerHTML = `
-        ${taskText}
-        <button class="delete-button">X</button>
+        <span class="task-text">${taskText}</span>
+
+        <div class="task-actions">
+            <button class="star-button">☆</button>
+            <button class="delete-button">X</button>
+        </div>
     `;
 
     taskList.appendChild(li);
-
     input.value = "";
 }
 
 
-/* DELETAR TAREFA (delegação de evento — funciona em qualquer layout) */
+/* CLIQUES NA LISTA (delete + estrela) */
 taskList.addEventListener("click", function(e) {
+
+    /* DELETE */
     if (e.target.classList.contains("delete-button")) {
-        e.target.parentElement.remove();
+        e.target.closest("li").remove();
+    }
+
+    /* ESTRELA */
+    if (e.target.classList.contains("star-button")) {
+        e.target.classList.toggle("starred");
+
+        if (e.target.classList.contains("starred")) {
+            e.target.textContent = "⭐";
+        } else {
+            e.target.textContent = "☆";
+        }
     }
 });
 
