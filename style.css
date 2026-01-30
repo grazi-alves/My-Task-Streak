@@ -11,12 +11,14 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
 header {
   background-color: #d7c6ff; 
   padding: 20px;             
   width: 100%;              
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
+
 main {
   width: 600px;
   max-width: 95%;
@@ -29,7 +31,7 @@ h1  {
 }
 
 input[type="text"] {
-  padding: 12px;             
+  padding: 18px;             
   font-size: 18px;          
   border: 2px solid #5e4caf; 
   border-radius: 8px;       
@@ -67,7 +69,7 @@ li {
   text-align: left;  
   font-size: 18px;        
   margin: 10px auto;          
-  padding: 14px;           
+  padding: 10px;           
   background-color: #5555551a; 
   border: 1px solid #d7c6ff;   
   border-radius: 8px;  
