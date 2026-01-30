@@ -1,45 +1,85 @@
 body {
-  margin: 100px 200px;
   background-color: #e7dcff; 
   color: #21003d;   
   text-align: center;         
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
+header {
+  background-color: #d7c6ff; 
+  padding: 20px;             
+  width: 100%;              
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+main {
+  width: 600px;
+  max-width: 95%;
+}
+
 h1  {
-  color: #4b0082; 
-  font-size: 60px;            
+  color: #320082; 
+  font-size: 70px;
+  margin-bottom: 20px;          
 }
+
 input[type="text"] {
-  padding: 10px;             
-  font-size: 16px;          
-  border: 2px solid #724caf; 
+  padding: 12px;             
+  font-size: 18px;          
+  border: 2px solid #5e4caf; 
   border-radius: 8px;       
-  width: 300px;             
+  width: 320px;             
   margin-right: 10px;      
 }
 
 button {
-  background-color: #724caf; 
+  background-color: #38107a; 
   color: white;              
   border: none;              
-  padding: 10px 20px;       
+  padding: 12px 18px;       
   text-align: center;        
   text-decoration: none;     
   display: inline-block;     
-  font-size: 16px;          
+  font-size: 18px;          
   margin: 4px 2px;         
   cursor: pointer;  
-  transition: 0.5s ease;        
+  transition: 0.2s ease;        
   border-radius: 8px;       
 }
+
 button:hover {
   background-color: #715f8c; 
+  transform: translateY(-1px);
+}
+
+ul {
+  list-style: none;
+  margin-top: 25px;
+  padding: 0;
+}
+
+li {
+  text-align: left;  
+  font-size: 18px;        
+  margin: 10px auto;          
+  padding: 14px;           
+  background-color: #5555551a; 
+  border: 1px solid #d7c6ff;   
+  border-radius: 8px;  
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;    
 }
 
 footer {
-  margin-top: 20px;
+  margin-top: auto;
+  padding: 20px;
   font-size: 14px;
   color: #555555;
 }
