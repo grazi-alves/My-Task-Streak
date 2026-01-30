@@ -3,28 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>My Task Streak</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <h1>Minhas Tasks</h1>
-        <input type="text" id="task-input-field" placeholder="Digite a sua tarefa">
-        <button id="add-task-button">Adicionar Tarefa</button>
-        
-    </header>
 
-    <main>
-       
-         <ul id="task-list">
-            <li>Exemplo de Tarefa 1 <button class="delete-button">X</button></li>
+<div class="layout">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+        <h2>Tarefas</h2>
+
+        <button class="create-btn">+ Criar</button>
+
+        <ul>
+            <li class="active">Todas as tarefas</li>
+            <li>Com estrela</li>
         </ul>
-    </main>
 
-    <footer>
-        <p>© 2026 Graziele Alves. Web Developer | Todos os direitos reservados.</p>
-  </footer> 
+        <div class="listas">
+            <p>Listas</p>
+            <ul>
+                <li>Minhas tarefas</li>
+                <li>+ Criar nova lista</li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main-area">
+
+        <header>
+            <h1>Minhas Tasks</h1>
+            <input type="text" id="task-input-field" placeholder="Digite a sua tarefa">
+            <button id="add-task-button">Adicionar Tarefa</button>
+        </header>
+
+        <main>
+            <ul id="task-list">
+                <li>Exemplo de Tarefa 1 
+                    <button class="delete-button">X</button>
+                </li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>© 2026 Graziele Alves</p>
+        </footer>
+
+    </div>
+
+</div>
 
 </body>
 </html>
