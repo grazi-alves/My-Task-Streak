@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>My Task Streak</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <div class="layout">
 
+  
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <button id="menu-toggle" class="menu-btn">☰</button>
@@ -16,34 +18,57 @@
     </div>
 
     <ul class="menu">
+      <li class="menu-item" id="daily-btn">📅 Tarefas Diárias</li>
       <li class="menu-item" id="projetos-btn">💻 Projetos</li>
       <li class="menu-item" id="faculdade-btn">🎓 Faculdade</li>
     </ul>
   </aside>
 
+  
   <div class="main-area">
 
+    
     <header>
-      <h1 id="header-title">Daily Tasks</h1>
-      <input type="text" id="task-input-field" placeholder="Digite a sua tarefa">
+      <h1 id="header-title">Tarefas Diárias</h1>
+      <input
+        type="text"
+        id="task-input-field"
+        placeholder="Digite a sua tarefa"
+      >
       <button id="add-task-button">Adicionar</button>
     </header>
 
+    
     <section class="stats">
-      <div class="stat"><strong id="total-count">0</strong><span>Total</span></div>
-      <div class="stat"><strong id="done-count">0</strong><span>Feitas</span></div>
-      <div class="stat"><strong id="pending-count">0</strong><span>Pendentes</span></div>
+      <div class="stat">
+        <strong id="total-count">0</strong>
+        <span>Total</span>
+      </div>
+      <div class="stat">
+        <strong id="done-count">0</strong>
+        <span>Feitas</span>
+      </div>
+      <div class="stat">
+        <strong id="pending-count">0</strong>
+        <span>Pendentes</span>
+      </div>
     </section>
 
+   
     <main>
-      <ul id="projetos-list" class="task-list active"></ul>
+      <ul id="daily-list" class="task-list active"></ul>
+      <ul id="projetos-list" class="task-list"></ul>
       <ul id="faculdade-list" class="task-list"></ul>
     </main>
 
-    <footer>© 2026 Graziele Alves</footer>
-  </div>
+    
+    <footer>
+      © 2026 Graziele Alves
+    </footer>
 
+  </div>
 </div>
+
 <script src="main.js"></script>
 </body>
 </html>

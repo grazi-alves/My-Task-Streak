@@ -1,7 +1,7 @@
-
 const input = document.getElementById("task-input-field");
 const addButton = document.getElementById("add-task-button");
 
+const dailyList = document.getElementById("daily-list");
 const projetosList = document.getElementById("projetos-list");
 const faculdadeList = document.getElementById("faculdade-list");
 
@@ -11,35 +11,38 @@ const pendingCount = document.getElementById("pending-count");
 
 const headerTitle = document.getElementById("header-title");
 
-
 const sidebar = document.getElementById("sidebar");
 const menuToggle = document.getElementById("menu-toggle");
+
+const dailyBtn = document.getElementById("daily-btn");
 const projetosBtn = document.getElementById("projetos-btn");
 const faculdadeBtn = document.getElementById("faculdade-btn");
 
-
-let currentList = projetosList;
+let currentList = dailyList;
 
 
 menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("collapsed");
 });
 
+dailyBtn.addEventListener("click", () => switchList("Tarefas Diárias"));
 projetosBtn.addEventListener("click", () => switchList("Projetos"));
 faculdadeBtn.addEventListener("click", () => switchList("Faculdade"));
+
 
 addButton.addEventListener("click", addTask);
 input.addEventListener("keydown", e => {
   if (e.key === "Enter") addTask();
 });
 
-
 function switchList(type) {
   document.querySelectorAll(".task-list").forEach(list =>
     list.classList.remove("active")
   );
 
-  if (type === "Projetos") {
+  if (type === "Tarefas Diárias") {
+    currentList = dailyList;
+  } else if (type === "Projetos") {
     currentList = projetosList;
   } else {
     currentList = faculdadeList;
@@ -89,13 +92,12 @@ function addTask() {
     updateCounters();
   });
 
-  actions.append(del);
+  actions.appendChild(del);
   li.append(checkbox, span, actions);
   currentList.appendChild(li);
 
   input.value = "";
   updateCounters();
 }
-
 
 updateCounters();
