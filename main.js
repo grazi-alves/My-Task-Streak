@@ -1,54 +1,101 @@
+
 const input = document.getElementById("task-input-field");
 const addButton = document.getElementById("add-task-button");
-const taskList = document.getElementById("task-list");
 
-/* ADICIONAR TAREFA */
+const projetosList = document.getElementById("projetos-list");
+const faculdadeList = document.getElementById("faculdade-list");
+
+const totalCount = document.getElementById("total-count");
+const doneCount = document.getElementById("done-count");
+const pendingCount = document.getElementById("pending-count");
+
+const headerTitle = document.getElementById("header-title");
+
+
+const sidebar = document.getElementById("sidebar");
+const menuToggle = document.getElementById("menu-toggle");
+const projetosBtn = document.getElementById("projetos-btn");
+const faculdadeBtn = document.getElementById("faculdade-btn");
+
+
+let currentList = projetosList;
+
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("collapsed");
+});
+
+projetosBtn.addEventListener("click", () => switchList("Projetos"));
+faculdadeBtn.addEventListener("click", () => switchList("Faculdade"));
+
 addButton.addEventListener("click", addTask);
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") addTask();
+});
+
+
+function switchList(type) {
+  document.querySelectorAll(".task-list").forEach(list =>
+    list.classList.remove("active")
+  );
+
+  if (type === "Projetos") {
+    currentList = projetosList;
+  } else {
+    currentList = faculdadeList;
+  }
+
+  currentList.classList.add("active");
+  headerTitle.textContent = type;
+  updateCounters();
+}
+
+function updateCounters() {
+  const tasks = currentList.querySelectorAll("li");
+  const doneTasks = currentList.querySelectorAll("input:checked");
+
+  totalCount.textContent = tasks.length;
+  doneCount.textContent = doneTasks.length;
+  pendingCount.textContent = tasks.length - doneTasks.length;
+}
 
 function addTask() {
-    const taskText = input.value.trim();
-    if (taskText === "") return;
+  const text = input.value.trim();
+  if (!text) return;
 
-    const li = document.createElement("li");
+  const li = document.createElement("li");
 
-    li.innerHTML = `
-        <span class="task-text">${taskText}</span>
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
 
-        <div class="task-actions">
-            <button class="star-button">☆</button>
-            <button class="delete-button">X</button>
-        </div>
-    `;
+  const span = document.createElement("span");
+  span.className = "task-text";
+  span.textContent = text;
 
-    taskList.appendChild(li);
-    input.value = "";
+  const actions = document.createElement("div");
+  actions.className = "task-actions";
+
+  const del = document.createElement("button");
+  del.textContent = "X";
+  del.className = "delete-button";
+
+  checkbox.addEventListener("change", () => {
+    span.classList.toggle("done", checkbox.checked);
+    updateCounters();
+  });
+
+  del.addEventListener("click", () => {
+    li.remove();
+    updateCounters();
+  });
+
+  actions.append(del);
+  li.append(checkbox, span, actions);
+  currentList.appendChild(li);
+
+  input.value = "";
+  updateCounters();
 }
 
 
-/* CLIQUES NA LISTA (delete + estrela) */
-taskList.addEventListener("click", function(e) {
-
-    /* DELETE */
-    if (e.target.classList.contains("delete-button")) {
-        e.target.closest("li").remove();
-    }
-
-    /* ESTRELA */
-    if (e.target.classList.contains("star-button")) {
-        e.target.classList.toggle("starred");
-
-        if (e.target.classList.contains("starred")) {
-            e.target.textContent = "⭐";
-        } else {
-            e.target.textContent = "☆";
-        }
-    }
-});
-
-
-/* ENTER adiciona tarefa */
-input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        addTask();
-    }
-});
+updateCounters();

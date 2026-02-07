@@ -1,67 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Task Streak</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>My Task Streak</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
 <div class="layout">
 
-    <!-- BARRA LATERAL -->
-    <aside class="sidebar">
-        <h2>Tarefas</h2>
-
-        <button class="create-btn">+ Criar</button>
-
-        <ul>
-            <li class="active">Todas as tarefas</li>
-            <li>Com estrela</li>
-        </ul>
-
-        <div class="listas">
-            <p>Listas</p>
-            <ul>
-                <li>Minhas tarefas</li>
-                <li>+ Criar nova lista</li>
-            </ul>
-        </div>
-    </aside>
-
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="main-area">
-
-        <header>
-            <h1>Minhas Tasks</h1>
-            <input type="text" id="task-input-field" placeholder="Digite a sua tarefa">
-            <button id="add-task-button">Adicionar Tarefa</button>
-        </header>
-
-        <main>
-            <ul id="task-list">
-    <li>
-        <span class="task-text">Exemplo de Tarefa 1</span>
-        <div class="task-actions">
-            <button class="star-button">☆</button>
-            <button class="delete-button">X</button>
-        </div>
-    </li>
-</ul>
-
-        </main>
-
-        <footer>
-            <p>© 2026 Graziele Alves</p>
-        </footer>
-
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <button id="menu-toggle" class="menu-btn">☰</button>
+      <h2 class="logo">My Task Streak</h2>
     </div>
 
-</div>
+    <ul class="menu">
+      <li class="menu-item" id="projetos-btn">💻 Projetos</li>
+      <li class="menu-item" id="faculdade-btn">🎓 Faculdade</li>
+    </ul>
+  </aside>
 
+  <div class="main-area">
+
+    <header>
+      <h1 id="header-title">Daily Tasks</h1>
+      <input type="text" id="task-input-field" placeholder="Digite a sua tarefa">
+      <button id="add-task-button">Adicionar</button>
+    </header>
+
+    <section class="stats">
+      <div class="stat"><strong id="total-count">0</strong><span>Total</span></div>
+      <div class="stat"><strong id="done-count">0</strong><span>Feitas</span></div>
+      <div class="stat"><strong id="pending-count">0</strong><span>Pendentes</span></div>
+    </section>
+
+    <main>
+      <ul id="projetos-list" class="task-list active"></ul>
+      <ul id="faculdade-list" class="task-list"></ul>
+    </main>
+
+    <footer>© 2026 Graziele Alves</footer>
+  </div>
+
+</div>
 <script src="main.js"></script>
 </body>
 </html>
